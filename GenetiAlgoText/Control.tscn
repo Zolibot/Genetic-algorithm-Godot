@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/DinamicFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GenetiAlgoText/Control2.gd" type="Script" id=2]
+[ext_resource path="res://GenetiAlgoMath/MathFunc.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GeneticCargo/Cargo.tscn" type="PackedScene" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tab_container" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -778.816, -97.576 )
+
+[node name="Cargo" parent="tab_container" instance=ExtResource( 4 )]
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+
+[node name="Genetic_Words" type="VBoxContainer" parent="tab_container"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="tab_container/Genetic_Words"]
+margin_right = 584.0
+margin_bottom = 871.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 13.06
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="tab_container/Genetic_Words/HBoxContainer"]
+show_behind_parent = true
+margin_right = 264.0
+margin_bottom = 871.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+custom_fonts/font = ExtResource( 1 )
+text = "All phrases:"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tab_container/Genetic_Words/HBoxContainer"]
+margin_left = 272.0
+margin_right = 584.0
+margin_bottom = 871.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="text_edit" type="LineEdit" parent="tab_container/Genetic_Words/HBoxContainer/VBoxContainer"]
+margin_right = 312.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+custom_fonts/font = ExtResource( 1 )
+text = "Cadres decide everything"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+
+[node name="Label2" type="Label" parent="tab_container/Genetic_Words/HBoxContainer/VBoxContainer"]
+show_behind_parent = true
+margin_top = 51.0
+margin_right = 312.0
+margin_bottom = 403.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="v_box_container" type="VBoxContainer" parent="tab_container/Genetic_Words/HBoxContainer/VBoxContainer"]
+margin_top = 411.0
+margin_right = 312.0
+margin_bottom = 468.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="tab_container/Genetic_Words/HBoxContainer/VBoxContainer/v_box_container"]
+margin_right = 312.0
+margin_bottom = 25.0
+size_flags_vertical = 5
+text = "population"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="h_scroll_bar" type="HScrollBar" parent="tab_container/Genetic_Words/HBoxContainer/VBoxContainer/v_box_container"]
+margin_top = 33.0
+margin_right = 312.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = 10.0
+max_value = 5000.0
+step = 10.0
+value = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="tab_container/Genetic_Words/HBoxContainer/VBoxContainer"]
+margin_top = 476.0
+margin_right = 312.0
+margin_bottom = 511.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "START"
+
+[node name="margin_container" type="MarginContainer" parent="tab_container/Genetic_Words/HBoxContainer/VBoxContainer"]
+margin_top = 519.0
+margin_right = 312.0
+margin_bottom = 871.0
+size_flags_vertical = 3
+
+[node name="MathFunc" parent="tab_container" instance=ExtResource( 3 )]
+visible = false
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+
+[connection signal="value_changed" from="tab_container/Genetic_Words/HBoxContainer/VBoxContainer/v_box_container/h_scroll_bar" to="." method="_on_h_scroll_bar_value_changed"]
+[connection signal="pressed" from="tab_container/Genetic_Words/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

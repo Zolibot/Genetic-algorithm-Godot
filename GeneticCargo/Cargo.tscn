@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GeneticCargo/Cargo.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Cargo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="node_2d" type="Node2D" parent="."]
+
+[node name="hold1" type="Area2D" parent="node_2d"]
+visible = false
+position = Vector2( 300, 470 )
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="node_2d/hold1"]
+shape = SubResource( 1 )
+
+[node name="v_box_container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="v_box_container"]
+margin_right = 600.0
+margin_bottom = 739.0
+size_flags_vertical = 3
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button" type="Button" parent="v_box_container"]
+margin_top = 747.0
+margin_right = 600.0
+margin_bottom = 940.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.26
+toggle_mode = true
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="v_box_container/button" to="." method="_on_button_toggled"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/DinamicFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GenetiAlgoMath/MathFunc.gd" type="Script" id=2]
+[ext_resource path="res://assets/new_dynamicfont.tres" type="DynamicFont" id=3]
+
+[node name="MathFunc" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="margin_container" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="v_box_container" type="VBoxContainer" parent="margin_container"]
+margin_right = 600.0
+margin_bottom = 910.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="Panel" parent="margin_container/v_box_container"]
+margin_right = 600.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+
+[node name="func" type="Label" parent="margin_container/v_box_container/panel"]
+margin_right = 580.0
+margin_bottom = -8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "3*x^3+2*y+10*a=37"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="h_box_container2" type="HBoxContainer" parent="margin_container/v_box_container"]
+margin_top = 40.0
+margin_right = 600.0
+margin_bottom = 89.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.06
+
+[node name="label" type="Label" parent="margin_container/v_box_container/h_box_container2"]
+margin_right = 296.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Answer"
+align = 2
+valign = 1
+
+[node name="text_edit" type="LineEdit" parent="margin_container/v_box_container/h_box_container2"]
+margin_left = 304.0
+margin_right = 600.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "37"
+
+[node name="h_box_container" type="HBoxContainer" parent="margin_container/v_box_container"]
+margin_top = 97.0
+margin_right = 600.0
+margin_bottom = 910.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label" type="Label" parent="margin_container/v_box_container/h_box_container"]
+margin_right = 296.0
+margin_bottom = 813.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+clip_text = true
+
+[node name="v_box_container" type="VBoxContainer" parent="margin_container/v_box_container/h_box_container"]
+margin_left = 304.0
+margin_right = 600.0
+margin_bottom = 813.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label2" type="Label" parent="margin_container/v_box_container/h_box_container/v_box_container"]
+margin_right = 296.0
+margin_bottom = 350.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Texttextetex"
+clip_text = true
+
+[node name="label22" type="Label" parent="margin_container/v_box_container/h_box_container/v_box_container"]
+margin_top = 358.0
+margin_right = 296.0
+margin_bottom = 378.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.12
+custom_fonts/font = ExtResource( 3 )
+text = "Population:"
+clip_text = true
+
+[node name="h_scroll_bar" type="HScrollBar" parent="margin_container/v_box_container/h_box_container/v_box_container"]
+margin_top = 386.0
+margin_right = 296.0
+margin_bottom = 410.0
+min_value = 10.0
+max_value = 3000.0
+step = 10.0
+value = 300.0
+
+[node name="button" type="Button" parent="margin_container/v_box_container/h_box_container/v_box_container"]
+margin_top = 418.0
+margin_right = 296.0
+margin_bottom = 455.0
+text = "START"
+
+[node name="margin_container" type="MarginContainer" parent="margin_container/v_box_container/h_box_container/v_box_container"]
+margin_top = 463.0
+margin_right = 296.0
+margin_bottom = 813.0
+size_flags_vertical = 3
+
+[connection signal="value_changed" from="margin_container/v_box_container/h_box_container/v_box_container/h_scroll_bar" to="." method="_on_h_scroll_bar_value_changed"]
+[connection signal="pressed" from="margin_container/v_box_container/h_box_container/v_box_container/button" to="." method="_on_Button_pressed"]
